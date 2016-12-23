@@ -10,54 +10,54 @@
  * Используйте в задаче this
  * */
 
-let developer1 = {
-    skills: ['JavaScript', 'linux', 'html', 'OOP', 'Node.js'],
-    requires: ['Node.js', 'JavaScript', 'OOP'],
-    get: function () {
-        let arr = [];
-        this.skills.forEach(function (item,i) {
-            arr[i] = item;
-        });
-        return arr
-    },
-    goodDev
-};
-let developer2 = {
-    experience: [{ technology: 'java' }, { technology: 'c++' },
-        { technology: 'aws' }, { technology: 'docker' }],
-    requires: ['java', 'json', 'c++', 'JavaScript'],
-    get: function () {
-        let arr = [];
-        this.experience.forEach(function (item,i) {
-            arr[i] = item.technology;
-        });
-        return arr;
-
-    },
-    goodDev
-};
-function find(arr,item) {
-    for (let i =0; i<arr.length; i++){
-        if(arr[i] == item){
-            return true;
-        }
-    }
-    return false;
-}
-
-  function goodDev(dev) {
-     let skill = this.get();
-    this.requires.forEach(function (item,i) {
-        if(find(skill,item)){
-            console.log(`${item} ... success`)
-        } else {
-            console.log(`${item} ... fail`);
-        }
-    })
-
- }
-developer1.goodDev();
-developer2.goodDev();
+// let developer1 = {
+//     skills: ['JavaScript', 'linux', 'html', 'OOP', 'Node.js'],
+//     requires: ['Node.js', 'JavaScript', 'OOP'],
+//     get: function () {
+//         let arr = [];
+//         this.skills.forEach(function (item,i) {
+//             arr[i] = item;
+//         });
+//         return arr
+//     },
+//     goodDev
+// };
+// let developer2 = {
+//     experience: [{ technology: 'java' }, { technology: 'c++' },
+//         { technology: 'aws' }, { technology: 'docker' }],
+//     requires: ['java', 'json', 'c++', 'JavaScript'],
+//     get: function () {
+//         let arr = [];
+//         this.experience.forEach(function (item,i) {
+//             arr[i] = item.technology;
+//         });
+//         return arr;
+//
+//     },
+//     goodDev
+// };
+// function find(arr,item) {
+//     for (let i =0; i<arr.length; i++){
+//         if(arr[i] == item){
+//             return true;
+//         }
+//     }
+//     return false;
+// }
+//
+//   function goodDev(dev) {
+//      let skill = this.get();
+//     this.requires.forEach(function (item,i) {
+//         if(find(skill,item)){
+//             console.log(`${item} ... success`)
+//         } else {
+//             console.log(`${item} ... fail`);
+//         }
+//     })
+//
+//  }
+// developer1.goodDev();
+// developer2.goodDev();
 
 
 
@@ -71,7 +71,26 @@ developer2.goodDev();
  *
  *
  * */
+let collection = [{age:15, name:'b'}, {age:10, name:'c'}, {age:25, name:'a'}];
 
+ collection.myFilter = function (arg) {
+     let arr = this;
+     for(let i = 0; i<arr.length-1;i++) {
+         if (i !== arr.length-1) {
+             if (arr[i][arg] > arr [i + 1][arg]) {
+                 let tmp = arr[i + 1][arg];
+                 arr[i + 1][arg] = arr[i][arg];
+                 arr[i][arg] = tmp
+             }
+         } else {
+            break;
+         }
+     }
+     console.log(arr);
+};
+
+collection.myFilter('age');
+collection.myFilter('name');
 //{age:10, name:'b'}, {age:15, name:'c'} {age:25, name:'A'}
 
 // myObject.myFilter('age');
@@ -82,9 +101,11 @@ developer2.goodDev();
 //  *
 //  * TASK 3
 //  *
-//  * Ваши приложения!
-//  * Ваше направление деятельности
 //  *
+// Данные будут хранится в БД! Функционал 1)(поиск по любому изи полей(имя, фамлия, номер), 2)сортировка по любому из полей)
+//  * Добавление,удаление, редактирование.
+// Функция : "добавить картинку к контакту" и "загрузить/выгрузить существующий справочник"
+//
 //  * */
 //
 //
