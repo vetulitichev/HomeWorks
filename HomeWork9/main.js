@@ -10,54 +10,42 @@
  * Используйте в задаче this
  * */
 
-// let developer1 = {
-//     skills: ['JavaScript', 'linux', 'html', 'OOP', 'Node.js'],
-//     requires: ['Node.js', 'JavaScript', 'OOP'],
-//     get: function () {
-//         let arr = [];
-//         this.skills.forEach(function (item,i) {
-//             arr[i] = item;
-//         });
-//         return arr
-//     },
-//     goodDev
-// };
-// let developer2 = {
-//     experience: [{ technology: 'java' }, { technology: 'c++' },
-//         { technology: 'aws' }, { technology: 'docker' }],
-//     requires: ['java', 'json', 'c++', 'JavaScript'],
-//     get: function () {
-//         let arr = [];
-//         this.experience.forEach(function (item,i) {
-//             arr[i] = item.technology;
-//         });
-//         return arr;
-//
-//     },
-//     goodDev
-// };
-// function find(arr,item) {
-//     for (let i =0; i<arr.length; i++){
-//         if(arr[i] == item){
-//             return true;
-//         }
-//     }
-//     return false;
-// }
-//
-//   function goodDev(dev) {
-//      let skill = this.get();
-//     this.requires.forEach(function (item,i) {
-//         if(find(skill,item)){
-//             console.log(`${item} ... success`)
-//         } else {
-//             console.log(`${item} ... fail`);
-//         }
-//     })
-//
-//  }
-// developer1.goodDev();
-// developer2.goodDev();
+let developer1 = {
+    skills: ['JavaScript', 'linux', 'html', 'OOP', 'Node.js'],
+    requires: ['Node.js', 'JavaScript', 'OOP'],
+    get: function () {
+        return this.skills;
+    },
+    goodDev
+};
+let developer2 = {
+    experience: [{ technology: 'java' }, { technology: 'c++' },
+        { technology: 'aws' }, { technology: 'docker' }],
+    requires: ['java', 'json', 'c++', 'JavaScript'],
+    get: function () {
+        let arr = [];
+        this.experience.forEach(function (item,i) {
+            arr[i] = item.technology;
+        });
+        return arr;
+
+    },
+    goodDev
+};
+
+  function goodDev(dev) {
+     let skill = this.get();
+    this.requires.forEach(function (item,i) {
+        if(skill.indexOf(item)){
+            console.log(`${item} ... success`)
+        } else {
+            console.log(`${item} ... fail`);
+        }
+    })
+
+ }
+developer1.goodDev();
+developer2.goodDev();
 
 
 
