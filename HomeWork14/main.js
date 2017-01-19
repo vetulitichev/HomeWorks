@@ -56,14 +56,14 @@ const someWebpackModule = `module.exports = {
  *
  *
  * */
-// str = str.replace(/is/g,'').replace(/ /,' hot').replace(/hot[ ]*/g,'hot ');
+str = str.replace(/is/g,'').replace(/ /,' hot').replace(/hot[ ]*/g,'hot ');
 
-// const myRegExp = (str, homeDir, appDir, appName) => {
-//     str = str.replace(/[%]*HOMEDIR[%]*/g,`${homeDir}`).replace(/[%]*APP_DIR[%]*/g,`${appDir}`).replace(/[%]*APPNAME[%]*/g,`${appName}`).replace(/js[.]js/g,'js');
-//    return str
-// };
-//
-// console.log(myRegExp(someWebpackModule, './JavaScript-Basic', 'fixtures/src', 'app.js'));
+const myRegExp = (str, homeDir, appDir, appName) => {
+    str = str.replace(/[%]*HOMEDIR[%]*/g,`${homeDir}`).replace(/[%]*APP_DIR[%]*/g,`${appDir}`).replace(/[%]*APPNAME[%]*/g,`${appName}`).replace(/js[.]js/g,'js');
+   return str
+};
+
+console.log(myRegExp(someWebpackModule, './JavaScript-Basic', 'fixtures/src', 'app.js'));
 
 
 
