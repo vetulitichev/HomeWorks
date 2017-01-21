@@ -1,6 +1,27 @@
 /*
  TASK 0. Найдите числа которые повторяются нечетное количество раз в массиве
  */
+*/
+ // function solution(arr) {
+ //     let res=[];
+ //    let localObj={};
+ //    arr.forEach(function (item,i) {
+ //        if(localObj[item]== undefined){
+ //
+ //            localObj[item] = 1;
+ //        } else {
+ //            localObj[item]+=1;
+ //        }
+ //    });
+ //    console.log(localObj);
+ //        for(let i in localObj){
+ //            if((localObj[i])%2){
+ //                res.push(i);
+ //            }
+ //        }
+ //        console.log(res);
+ //
+ // }
  function solution(arr) {
      let res=[];
     let localObj={};
