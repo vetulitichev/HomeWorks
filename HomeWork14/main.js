@@ -2,7 +2,7 @@
  TASK 0. Найдите числа которые повторяются нечетное количество раз в массиве
  */
 */
- // function solution(arr) {
+// function solution(arr) {
  //     let res=[];
  //    let localObj={};
  //    arr.forEach(function (item,i) {
@@ -23,25 +23,28 @@
  //
  // }
  function solution(arr) {
-     let res=[];
-    let localObj={};
-    arr.forEach(function (item,i) {
-        if(localObj[item]== undefined){
-
-            localObj[item] = 1;
-        } else {
-            localObj[item]+=1;
+    let tmp =[];
+    function filterFunc(value) {
+        let count=0;
+       let a;
+       a= arr.forEach(function (item,i) {
+           if(value==item){
+               count++;
+           }
+       });
+        if(count%2){
+            arr.forEach(function (item,i) {
+               let a = arr.indexOf(value);
+               arr.splice(a,1);
+            });
+            return value
         }
-    });
-    console.log(localObj);
-        for(let i in localObj){
-            if((localObj[i])%2){
-                res.push(i);
-            }
         }
-        console.log(res);
+        tmp = arr.filter(filterFunc);
+    console.log(tmp);
 
- }
+
+}
  //
  solution([12, 23, 34, 12, 12, 23, 12, 45])// -> [34 45]
  solution([4, 4, 100, 5000, 4, 4, 4, 4, 4, 100, 100,])// -> [4 100 5000]
