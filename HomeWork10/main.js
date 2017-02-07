@@ -31,14 +31,14 @@ z(x);
  *
  * */
 
-let $ = function() {
-    return `<${arguments[0]}></${arguments[0]}>`
-};
-
-let createBODY = $('body');
-let createDIV = $('div');
-console.log(createBODY); //<body></body>
-console.log(createDIV); //<div></div>
+// let $ = function() {
+//     return `<${arguments[0]}></${arguments[0]}>`
+// };
+//
+// let createBODY = $('body');
+// let createDIV = $('div');
+// console.log(createBODY); //<body></body>
+// console.log(createDIV); //<div></div>
 
 
 /*
@@ -72,7 +72,6 @@ let ezjQuery = {
         this.str = this.str.split('');
         this.str.splice(this.str.indexOf(' '),1,`<${tag}>${item}</${tag}>`);
         this.str = this.str.join('');
-        //console.log(this.str,this.str.length);
         return this
     },
     render() {
@@ -98,6 +97,7 @@ let bodyDiv = ezjQuery.add('body') //<body></body>
     .add('div') //<body><div></div></body>
     .render();
 console.log(bodyDiv);//<body><div></div></body>
+console.log( ezjQuery.add('h1', 'hello friend').add('ul', 'spisok').add('li', ' ').add('li', 'zxc'));
 document.write(helloList);
 /*
  *
@@ -135,3 +135,25 @@ document.write(helloList);
  *
  *
  * */
+
+let  $ = class {
+    constructor(str=''){
+        this.str = `<${str}> </${str}>`;
+        //console.log(this.str);
+    }
+    add(tag,item =' ') {
+        this.str = this.str.split('');
+        this.str.splice(this.str.indexOf(' '),1,`<${tag}>${item}</${tag}>`);
+        this.str = this.str.join('');
+        return this
+    }
+    render() {
+        let tmp = this.str;
+        this.str ='';
+        tmp;
+        return tmp;
+    }
+
+};
+ let asd = new $('body').add('li', 'hi').render();
+document.write(asd);

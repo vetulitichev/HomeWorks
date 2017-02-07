@@ -98,38 +98,37 @@ collection.myFilter('name');
 //
 //
 //
-// ////////@ TODO -- LVL Strong Junior
-// /*
-//  *
-//  * TASK 2
-//  * Напишите функцию которая принимает 3 аргумента:*
-//  *
-//  *  - объект к которому привязывается метод
-//  *  - Имя свойства с коьторым связывается метод
-//  *  - Объявление привязываемого метода( функция )
-//  *
-//  *
-//  *  Если количество аргументов у функции fn совпадает сохраняет метод в замыкании
-//  *  и привязывает функцию к методу объекта
-//  *
-//  *  при вызове одного и того же метода с разным количеством аргументов, должно давать различный результат
-//  *
-//  * */
-//
-// let junior = {};
-//
-// // fn.length ==
-//
-// function addMethod(object, name, fn) {
-//
-// }
-//
-//
-// addMethod(junior, 'ok', function() {console.log(arguments.length)});
-// addMethod(junior, 'ok', function(one) {console.log(arguments.length)});
-// addMethod(junior, 'ok', function(one, two) {console.log(arguments.length)});
-// addMethod(junior, 'ok', function(one, two, three) {console.log(arguments.length)});
-//
-// junior.ok(1);
-// junior.ok(1, 2);
-// junior.ok(1, 2, 3);
+////////@ TODO -- LVL Strong Junior
+/*
+ *
+ * TASK 1
+ * Напишите функцию которая принимает 3 аргумента:*
+ *
+ *  - объект к которому привязывается метод
+ *  - Имя свойства с которым связывается метод
+ *  - Объявление привязываемого метода( функция )
+ *
+ *
+ *  Если количество аргументов у функции fn совпадает сохраняет метод в замыкании
+ *  и привязывает функцию к методу объекта
+ *
+ *  при вызове одного и того же метода с разным количеством аргументов, должно давать различный результат
+ *
+ * */
+
+let junior = {};
+
+// fn.length == arguments.length
+
+function addMethod(object, name, fn) {
+     object[name] = fn;
+}
+    addMethod(junior, 'ok', function() {console.log('zero arguments')});
+addMethod(junior, 'ok', function(one) {console.log('one arguments')});
+addMethod(junior, 'ok', function(one, two) {console.log('two arguments')});
+addMethod(junior, 'ok', function(one, two, three) {console.log('three arguments')});
+
+ junior.ok(); //'zero arguments'
+junior.ok(1); //'one arguments'
+junior.ok(1, 2); // 'two arguments'
+junior.ok(1, 2, 3); // 'three arguments'

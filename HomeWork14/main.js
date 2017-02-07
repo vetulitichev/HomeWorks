@@ -1,8 +1,7 @@
 /*
  TASK 0. Найдите числа которые повторяются нечетное количество раз в массиве
  */
-*/
-// function solution(arr) {
+ // function solution(arr) {
  //     let res=[];
  //    let localObj={};
  //    arr.forEach(function (item,i) {
@@ -22,29 +21,55 @@
  //        console.log(res);
  //
  // }
- function solution(arr) {
-    let tmp =[];
-    function filterFunc(value) {
-        let count=0;
-       let a;
-       a= arr.forEach(function (item,i) {
-           if(value==item){
-               count++;
-           }
-       });
-        if(count%2){
-            arr.forEach(function (item,i) {
-               let a = arr.indexOf(value);
-               arr.splice(a,1);
-            });
-            return value
-        }
-        }
-        tmp = arr.filter(filterFunc);
-    console.log(tmp);
+// function solution(arr) {
+//     let tmp =[];
+//     function filterFunc(value) {
+//         let count=0;
+//        let a;
+//        a= arr.forEach(function (item,i) {
+//            if(value==item){
+//                count++;
+//            }
+//        });
+//         if(count%2){
+//             arr.forEach(function (item,i) {
+//                let a = arr.indexOf(value);
+//                arr.splice(a,1);
+//             });
+//             return value
+//         }
+//         }
+//         tmp = arr.filter(filterFunc);
+//     console.log(tmp);
 
+function sort(a,b) {
+    if (a !== b) {return 1;}else {return -1}
 
 }
+function solution(arr) {
+    let tmp = undefined;
+    let count = 0;
+
+    arr = arr.sort(sort).filter(function (item) {
+
+            if(item==tmp){
+                count++;
+                tmp = item;
+            } else {
+                tmp = item;
+                if(count%2){
+                    return 0;
+                } else {
+                    return item;
+                }
+            }
+
+
+
+    });
+    console.log(arr);
+}
+
  //
  solution([12, 23, 34, 12, 12, 23, 12, 45])// -> [34 45]
  solution([4, 4, 100, 5000, 4, 4, 4, 4, 4, 100, 100,])// -> [4 100 5000]
@@ -80,14 +105,14 @@ const someWebpackModule = `module.exports = {
  *
  *
  * */
-str = str.replace(/is/g,'').replace(/ /,' hot').replace(/hot[ ]*/g,'hot ');
+// str = str.replace(/is/g,'').replace(/ /,' hot').replace(/hot[ ]*/g,'hot ');
+//
+// const myRegExp = (str, homeDir, appDir, appName) => {
+//     str = str.replace(/[%]*HOMEDIR[%]*/g,`${homeDir}`).replace(/[%]*APP_DIR[%]*/g,`${appDir}`).replace(/[%]*APPNAME[%]*/g,`${appName}`).replace(/js[.]js/g,'js');
+//    return str
+// };
 
-const myRegExp = (str, homeDir, appDir, appName) => {
-    str = str.replace(/[%]*HOMEDIR[%]*/g,`${homeDir}`).replace(/[%]*APP_DIR[%]*/g,`${appDir}`).replace(/[%]*APPNAME[%]*/g,`${appName}`).replace(/js[.]js/g,'js');
-   return str
-};
-
-console.log(myRegExp(someWebpackModule, './JavaScript-Basic', 'fixtures/src', 'app.js'));
+// console.log(myRegExp(someWebpackModule, './JavaScript-Basic', 'fixtures/src', 'app.js'));
 
 
 
